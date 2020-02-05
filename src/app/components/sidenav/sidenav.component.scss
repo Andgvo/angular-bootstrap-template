@@ -1,6 +1,3 @@
-/* Palette color theme */
-@import "~src/assets/scss/palette.scss";
-
 .example-container {
   display: flex;
   flex-direction: column;
@@ -39,14 +36,23 @@
 }
 
 /* Container */
+.mat-sidenav-container{ background: #fff }
 .mat-sidenav-content {
-  padding-top: 9px;
 
   &.mat-drawer-content {
     background: #ffffff;
   }
 }
 
+/*Menu*/
+.mat-menu-item{
+  padding-right: 19px;
+}
+.mat-icon.notranslate.material-icons.mat-icon-no-color{
+  margin-right: 2px;
+  margin-left: -2px;
+  margin-top: -2px !important;
+}
 .mat-elevation-z3 {
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12), inset 0 -1px 0 0 #dadce0 !important;
 }
@@ -83,62 +89,4 @@ h1.example-app-name {
 
 .sidenav-icon {
   padding-right: 30px;
-}
-
-.color-line {
-  background: #f7f9fa;
-  height: 4px !important;
-  padding-top: 0;
-  margin-top: -1px;
-  background-image: -webkit-linear-gradient(
-    left,
-    $primary,
-    $primary 20%,
-    $success 20%,
-    $success 40%,
-    $info 40%,
-    $info 60%,
-    $warning 60%,
-    $warning 80%,
-    $danger 80%
-  );
-  background-image: -moz-linear-gradient(
-    left,
-    $primary,
-    $primary 20%,
-    $success 20%,
-    $success 40%,
-    $info 40%,
-    $info 60%,
-    $warning 60%,
-    $warning 80%,
-    $danger 80%
-  );
-  background-image: -ms-linear-gradient(
-    left,
-    $primary,
-    $primary 20%,
-    $success 20%,
-    $success 40%,
-    $info 40%,
-    $info 60%,
-    $warning 60%,
-    $warning 80%,
-    $danger 80%
-  );
-  background-image: linear-gradient(
-    to right,
-    $primary,
-    $primary 20%,
-    $success 20%,
-    $success 40%,
-    $info 40%,
-    $info 60%,
-    $warning 60%,
-    $warning 80%,
-    $danger 80%
-  );
-  background-size: 100%;
-  background-position: 50% 100%;
-  background-repeat: no-repeat;
 }
