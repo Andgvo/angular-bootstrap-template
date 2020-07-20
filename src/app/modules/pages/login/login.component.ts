@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit {
       }).catch(err => this.showError(err));
   }
 
+  onLoginGoogle(){
+  
+  }
+  
   onLogout() {
     this.authService.logoutUser();
   }
