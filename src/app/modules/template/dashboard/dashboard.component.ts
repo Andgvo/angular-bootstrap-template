@@ -12,12 +12,12 @@ import { cardAnimation } from '@shared/animations/router.animations';
 })
 
 export class DashboardComponent implements OnInit {
+  
+  cards = linksAdmin.slice(1);
 
   constructor() {
     BreadcrumbComponent.update(BC_HOME);
   }
-
-  cards = linksAdmin.slice(1); 
 
   ngOnInit() {
   }

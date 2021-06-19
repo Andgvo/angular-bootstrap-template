@@ -8,10 +8,11 @@
 
   .breadcrumb-item {
     + .breadcrumb-item {
-      padding: 0px;
+      padding: 0px;      
     }
     &::before {
       padding: 0px;
+      float: inherit !important;
     }
   }
 
@@ -25,8 +26,4 @@
       margin-top: -10px;
     }
   }
-}
-
-.title{
-  
 }

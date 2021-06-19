@@ -51,7 +51,7 @@ $angular-material-theme: mat-light-theme(
 @include angular-material-theme($angular-material-theme);
 
 // Styles for messages
-@import '~ngx-toastr/toastr-bs4-alert';
+//@import '~ngx-toastr/toastr-bs4-alert';
 
 /* You can add global styles to this file, and also import other style files */
 html,
@@ -181,16 +181,16 @@ b {
   top: 58px;
   left: -5px;
 
-  @each $color, $value in $theme-colors {
-    padding: 0 !important;
-    &.#{$color} {
-      @include alert-variant(
-        theme-color-level($color, $alert-bg-level),
-        theme-color-level($color, $alert-border-level),
-        theme-color-level($color, $alert-color-level)
-      );
-    }
-  }
+  // @each $color, $value in $theme-colors {
+  //   padding: 0 !important;
+  //   &.#{$color} {
+  //     @include alert-variant(
+  //       color-level($color, $alert-bg-level),
+  //       color-level($color, $alert-border-level),
+  //       color-level($color, $alert-color-level)
+  //     );
+  //   }
+  // }
 }
 
 .alert {
