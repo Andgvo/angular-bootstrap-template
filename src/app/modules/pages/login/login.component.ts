@@ -1,6 +1,5 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@services/auth.service';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 //import { ToastrService } from 'ngx-toastr';
 
@@ -17,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService, private fb: FormBuilder){
+    private fb: FormBuilder){
     //private _toats: ToastrService) {
   }
 
@@ -34,24 +33,16 @@ export class LoginComponent implements OnInit {
         '';
   }
 
-  onLogin(): void {
-    this.authService.loginEmailUser(this.fgUsuario.get('email').value, this.fgUsuario.get('password').value)
-      .then((res) => {
-        this.onLoginRedirect();
-      }).catch(err => this.showError(err));
+  onLogin(): void {    
   }
 
-  onLoginGoogle(){
-  
+  onLoginGoogle(){ 
   }
   
-  onLogout() {
-    this.authService.logoutUser();
+  onLogout() {    
   }
 
   showError(err) {
-    console.log(err);
-    //this._toats.error(err.message);
   }
 
   onLoginRedirect(): void {

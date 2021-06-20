@@ -16,7 +16,6 @@ import { DialogForm } from './view/form/form.component';
 import { DynamicFormComponent } from './view/dynamic-form/dynamic-form.component';
 import { MessagesComponent } from './view/messages/messages.component';
 import { CustomThemeComponent } from './view/custom-theme/custom-theme.component';
-import { UsageModule } from './view/usages/usage.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +35,6 @@ import { UsageModule } from './view/usages/usage.module';
     TemplateRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    UsageModule,
   ]
 })
 export class TemplateModule { }
