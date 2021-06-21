@@ -1,0 +1,49 @@
+<div class="row my-2">
+  <div class="col">
+      
+      <div class="row" *ngIf="title !== '' ">
+        <div class="col-12 my-2 px-0">
+          <div class="card" [class.border-danger]="invalid && submitted">
+            <div class="card-header">
+              <b>{{ title }}</b>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12 col-md-4 my-2" *ngFor="let item of items">
+                  <div class="card mat-elevation-z1">
+                    <div class="card-header" *ngIf="mainAttr !== '' ">
+                      <b>{{ item[mainAttr] }}</b>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">                        
+                        <div class="col-12 px-0" *ngFor="let attr of attributes; trackBy:identify">                          
+                            <mat-slide-toggle color="primary" [(ngModel)]="item[attr.json]" (change)="validateLeastOneSelected()">{{ attr.label }}</mat-slide-toggle>
+                            <!-- <mat-checkbox class="break-line" color="primary" [(ngModel)]="item[attr.json]">{{ attr.label }}</mat-checkbox> -->
+                        </div>
+                      </div>
+                    </div>                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="invalid && submitted" class="alert alert-danger">
+            <div>
+              {{ 'messages.MSG1_INPUT'}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="row my-3 justify-content-center">
+          <div class="general-buttons-columns">
+              <button type="button" (click)="onSubmit()" class="btn btn-primary btn-block">{{ submitLabel}}</button>
+          </div>
+          <div class="general-buttons-columns" *ngIf="showCancel">
+              <button type="button" (click)="onCancel()" class="btn btn-secondary btn-block">{{ cancelLabel}}</button>
+          </div>
+      </div>
+      
+  </div>
+</div>

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PagesRoutingModule } from './pages-routing.module';
 import { LoginComponent } from './login/login.component';
-import { AngularMaterialTemplateModule } from '@modules/template/angular-material-template.module';
+import { AngularMaterialTemplateModule } from '@shared/module-import/angular-material-template.module';
 import { MatInputModule } from '@angular/material/input';
 import { SignInComponent } from './sign-in/sign-in.component';
 

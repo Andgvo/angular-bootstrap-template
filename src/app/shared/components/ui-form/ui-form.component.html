@@ -1,0 +1,113 @@
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+  <!-- Form Card -->  
+  <div class="row mt-1">
+      <div class="col-sm-12">
+          <div class="card w-100">
+              <div class="card-header bg-light">
+                  <b>{{ title }}</b>
+              </div>
+              <div class="card-body">
+                  
+                <div class="row" *ngFor="let item of inputs">
+                  <div class="col-12 col-sm-4 col-md-4 col-lg-4 text-right pt-1">
+                    <b class="form-label" [class.form-label-required]="item.required!"> {{ item.label }} </b>
+                  </div>
+                  <div class="col-12 col-sm-8 col-md-7 col-lg-6  pb-4" [ngSwitch]="item.type">
+
+                    <!-- TEXT  -->
+                    <div *ngSwitchCase="TYPES.TEXT">
+                      <input class="form-control" [class.is-invalid]="formGroup.get(item.name)?.invalid && submitted" [formControlName]="item.name"
+                            [type]="item.type" [required]="item.required!" [attr.disabled]="item.disabled!">
+                      <div *ngIf="formGroup.get(item.name)?.invalid && submitted" class="alert alert-danger">
+                        <div *ngIf="formGroup.get(item.name)?.getError('required')">
+                          {{ 'messages.MSG1_INPUT'  }}
+                        </div>
+                        <div *ngIf="formGroup.get(item.name)?.getError('pattern')">
+                          Pattern error
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- NUMBER -->
+                    <div *ngSwitchCase="TYPES.NUMBER">
+                      <input class="form-control" [class.is-invalid]="formGroup.get(item.name)?.invalid && submitted" [formControlName]="item.name"
+                            [type]="item.type" [attr.disabled]="item.disabled!" appOnlynumber>
+                      <div *ngIf="formGroup.get(item.name)?.invalid && submitted" class="alert alert-danger">
+                        <div *ngIf="formGroup.get(item.name)?.getError('required')">
+                          {{ 'messages.MSG1_INPUT'  }}
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- SELECT -->
+                    <div *ngSwitchCase="TYPES.SELECT">
+                      <select class="custom-select" [class.is-invalid]="formGroup.get(item.name)?.invalid && submitted" [formControlName]="item.name"
+                              [required]="item.required!" [attr.disabled]="item.disabled!">
+                        <option [value]="itemSelect.value" *ngFor="let itemSelect of item.optionItems">{{ itemSelect.label }}</option>
+                      </select>  
+                      <div *ngIf="formGroup.get(item.name)?.invalid && submitted" class="alert alert-danger">
+                        <div *ngIf="formGroup.get(item.name)?.getError('required')">
+                          {{ 'messages.MSG1_INPUT'  }}
+                        </div>
+                      </div>        
+                    </div>
+
+                    <!-- CHECKBOX -->
+                    <div *ngSwitchCase="TYPES.CHECKBOX">
+                      <ui-checkbox-group [options]="item.optionItems!" [formControlName]="item.name" ></ui-checkbox-group>
+                      <div *ngIf="formGroup.get(item.name)?.invalid && submitted" class="alert alert-danger">
+                        <div *ngIf="formGroup.get(item.name)?.getError('required')">
+                          {{ 'messages.MSG1_INPUT'  }}
+                        </div>
+                      </div>        
+                    </div>
+
+                    <!-- RADIO_BUTTON -->
+                    <div *ngSwitchCase="TYPES.RADIO_BUTTON">
+                      <div class="form-check form-check-inline" *ngFor="let option of item.optionItems">
+                        <input class="form-check-input" [class.is-invalid]="formGroup.get(item.name)?.invalid && submitted" [formControlName]="item.name" type="radio" [value]="option.value" [attr.disabled]="option.disabled!">
+                        <label class="form-check-label">{{ option.label }}</label>
+                      </div>
+                      <div *ngIf="formGroup.get(item.name)?.invalid && submitted && submitted" class="alert alert-danger">
+                        <div *ngIf="formGroup.get(item.name)?.getError('required')">
+                          {{ 'messages.MSG1_INPUT'  }}
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- TEXTAREA -->
+                    <div *ngSwitchCase="TYPES.TEXTAREA">
+                      <textarea class="form-control" [class.is-invalid]="formGroup.get(item.name)?.invalid && submitted" [formControlName]="item.name"
+                            [rows]="item.rows" [required]="item.required!" [attr.disabled]="item.disabled!"></textarea>
+                      <div *ngIf="formGroup.get(item.name)?.invalid && submitted" class="alert alert-danger">
+                        <div *ngIf="formGroup.get(item.name)?.getError('required')">
+                          {{ 'messages.MSG1_INPUT'  }}
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1 pt-1" *ngIf="item.help != null">
+                    <span class="d-inline-block" tabindex="0" ata-toggle="tooltip"  >
+                      <i class="fa fa-question"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="row mt-3 justify-content-center">
+      <div class="general-buttons-columns">
+          <button type="button" type="submit" class="btn btn-primary btn-block">{{ submitLabel  }}</button>
+      </div>
+      <div class="general-buttons-columns" *ngIf="showCancel">
+          <button type="button" (click)="onCancel()" class="btn btn-secondary btn-block">{{ cancelLabel  }}</button>
+      </div>
+  </div>
+  
+</form>

@@ -3,9 +3,6 @@ import { NgModule } from '@angular/core';
 
 /* MODULES */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularMaterialTemplateModule } from '@template/angular-material-template.module';
-import { TemplateModule } from '@modules/template/template.module';
 import { AppRoutingModule } from './app-routing.module';
 
 /* SERVICES */
@@ -13,24 +10,20 @@ import { AppRoutingModule } from './app-routing.module';
 /* COMPONENTS */
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { BreadcrumbComponent } from '@shared/breadcrumb/breadcrumb.component';
-import { MessagesSnackComponent } from '@shared/messages-snack/messages-snack.component';
+import { BreadcrumbModule } from '@shared/components/breadcrumb/breadcrumb.module';
+import { AngularMaterialTemplateModule } from '@shared/module-import/angular-material-template.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
-    BreadcrumbComponent,
-    MessagesSnackComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AngularMaterialTemplateModule,
-    TemplateModule,
+    BrowserAnimationsModule,      
     AppRoutingModule,
+    BreadcrumbModule,
+    AngularMaterialTemplateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

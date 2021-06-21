@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BreadcrumbComponent } from "@breadcrumb/breadcrumb.component";
+import { BreadcrumbComponent } from "@shared/components/breadcrumb/breadcrumb.component";
 import { BC_CUSTOM_THEME } from "@shared/routing-list/ListLinks";
 
 @Component({
